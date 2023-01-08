@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "../Button/Button";
 import Dropdown from "./Dropdown";
 import Hashtags from "./Hashtags";
-import NewsContext from "../../utils/context"
 import { addNews } from "../../utils/addNews";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { useNews } from "../../zustand/store";
 
 const CreateNews = () => {
-  const { reloadNews, setReloadNews } = useContext(NewsContext)
+  const setNews = useNews(state => state.setNews)
   const navigate = useNavigate()
 
   const formValidation = Yup.object().shape({
@@ -40,7 +40,7 @@ const CreateNews = () => {
       onSubmit={(val) => { 
         addNews(val)
         .then(() => {
-          setReloadNews(!reloadNews)
+          setNews()
           navigate("/")
         })
       }}

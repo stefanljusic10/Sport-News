@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import NewsContext from "../../utils/context";
 import Categories from "./Categories";
 import Nav from "./Nav";
 import NavLogged from "./NavLogged";
 import hamburgerMenu from "../../assets/hamburger_menu.svg";
+import { useAccessToken } from "../../zustand/store";
 
 const Header = () => {
-  const { accessToken } = useContext(NewsContext);
   const { pathname } = useLocation();
+  const accessToken = useAccessToken(state => state.accessToken)
 
   return (
     <>

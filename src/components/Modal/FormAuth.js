@@ -4,8 +4,6 @@ import { Form, Field } from "formik"
 import Button from "../Button/Button";
 
 const FormAuth = ({ heading, errors, touched, method, btnName }) => {
-  console.log(errors);
-
   const submitForm = (e) => {
     e.preventDefault()
     method()

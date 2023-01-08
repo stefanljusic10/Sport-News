@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import NewsContext from "../utils/context";
 import handleLogin from "../utils/auth_login";
 import FormAuth from "../components/Modal/FormAuth";
 import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useAccessToken, useAdmin, useModal } from "../zustand/store";
 
 const LoginModal = () => {
   const navigate = useNavigate();
-  const { setToggleModal, setAccessToken, setIsAdminLogged } = useContext(NewsContext);
+  const closeAllModals = useModal(state => state.closeAll)
+  const setIsAdminLogged = useAdmin(state => state.setIsAdminLogged)
+  const setAccessToken = useAccessToken(state => state.setAccessToken)
+  
 
   const formValidation = Yup.object().shape({
     email: Yup.string().required("This field is required!").email("Invalid email"),
@@ -18,7 +21,7 @@ const LoginModal = () => {
 
   return ReactDOM.createPortal(
     <div id="login-register">
-      <button onClick={() => setToggleModal({ login: false, register: false })}>
+      <button onClick={closeAllModals}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -53,9 +56,9 @@ const LoginModal = () => {
                 values.email,
                 values.password,
                 navigate,
-                () => setToggleModal({ login: false, register: false }),
-                () => setAccessToken(sessionStorage.getItem("accessToken")),
-                () => setIsAdminLogged(true)
+                closeAllModals,
+                setAccessToken,
+                setIsAdminLogged
               )
             }
           />

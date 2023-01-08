@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
-import NewsContext from '../utils/context'
 import FormattedText from '../components/SelectedNews/FormattedText'
 import moment from 'moment'
+import { useNews } from '../zustand/store'
 
 const SelectedNews = () => {
-  const { news } = useContext(NewsContext)
+  const news = useNews(state => state.news)
   const { id } = useParams()
 
   const clickedNews = news.find(e => e.id === id)

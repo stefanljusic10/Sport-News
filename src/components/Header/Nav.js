@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
-import NewsContext from "../../utils/context";
+import React from "react";
+import { useModal } from "../../zustand/store";
 
 const Nav = () => {
-  const { setToggleModal } = useContext(NewsContext);
+  const openLoginModal = useModal(state => state.openLogin)
+  const openRegisterModal = useModal(state => state.openRegister)
+  
   return (
     <ul className="auth">
-      <li onClick={() => setToggleModal({ login: true, register: false, createAdmin: false })}>
+      <li onClick={openLoginModal}>
         Log in
       </li>
-      <li onClick={() => setToggleModal({ login: false, register: true, createAdmin: false })}>
+      <li onClick={openRegisterModal}>
         Register
       </li>
     </ul>

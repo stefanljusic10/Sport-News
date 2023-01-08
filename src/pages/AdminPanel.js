@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import AdminNewsCard from '../components/AdminPanel/AdminNewsCard'
 import SortNews from '../components/AdminPanel/SortNews'
 import Button from '../components/Button/Button'
-import NewsContext from '../utils/context'
+import { useNews } from '../zustand/store'
 
 const AdminPanel = () => {
-  const { news } = useContext(NewsContext)
+  const news = useNews(state => state.news)
   const navigate = useNavigate()
   
   const cards = news.map((e) => <AdminNewsCard news={e} key={e.id} />)

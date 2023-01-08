@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import NewsContext from '../utils/context';
 import Dropdown from '../components/AdminPanel/Dropdown';
 import Hashtags from '../components/AdminPanel/Hashtags';
 import Button from '../components/Button/Button';
@@ -8,10 +7,11 @@ import { editSelectedNews } from "../utils/editSelectedNews";
 import moment from "moment";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useNews } from '../zustand/store';
 
 const EditNews = () => {
     const {id} = useParams()
-    const { reloadNews, setReloadNews } = useContext(NewsContext)
+    const getNews = useNews(state => state.getNews)
     const navigate = useNavigate()
     const editNews = JSON.parse(sessionStorage.getItem('editNews'))
     const parsedDate = (dateValue) => moment(dateValue).format("YYYY-MM-DD")
@@ -42,9 +42,9 @@ const EditNews = () => {
         }}
         validationSchema={formValidation}
         onSubmit={(val) => {
-          editSelectedNews(id, val, reloadNews, setReloadNews)
+          editSelectedNews(id, val)
           .then(() => {
-            setReloadNews(!reloadNews)
+            getNews()
             navigate("/admin")
           })
           .catch(error => {

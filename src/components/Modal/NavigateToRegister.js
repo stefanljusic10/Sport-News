@@ -1,17 +1,19 @@
-import React, { useContext } from 'react'
-import NewsContext from '../../utils/context'
+import React from "react";
+import { useModal } from "../../zustand/store";
 
 const NavigateToRegister = () => {
-    const { setToggleModal } = useContext(NewsContext)
-    const navigateToRegister = (e) => {
-        e.preventDefault()
-        setToggleModal({ login: false, register: true })
-      }
-  return (
-    <button className='btnGoToRegister' onClick={(e) => navigateToRegister(e)}>
-        Don't have an account? Register now
-    </button>
-  )
-}
+  const registerModal = useModal((state) => state.openRegisterModal);
 
-export default NavigateToRegister
+  const navigateToRegister = (e) => {
+    e.preventDefault();
+    registerModal();
+  };
+  
+  return (
+    <button className="btnGoToRegister" onClick={(e) => navigateToRegister(e)}>
+      Don't have an account? Register now
+    </button>
+  );
+};
+
+export default NavigateToRegister;

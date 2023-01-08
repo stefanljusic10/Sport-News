@@ -6,7 +6,7 @@ const handleLogin = (
   email,
   password,
   navigate,
-  setToggleModal,
+  closeAllModals,
   setAccessToken,
   setIsAdminLogged
 ) => {
@@ -14,8 +14,8 @@ const handleLogin = (
   signInWithEmailAndPassword(auth, email, password).then((res) => {
     // Signed in
     sessionStorage.setItem("accessToken", res._tokenResponse.idToken);
-    setToggleModal();
-    setAccessToken()
+    closeAllModals();
+    setAccessToken();
 
     const usersCollectionRef = collection(db, "users");
     const getUsers = async () => {

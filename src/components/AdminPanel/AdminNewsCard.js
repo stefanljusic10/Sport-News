@@ -1,17 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import moment from 'moment'
 import Button from '../Button/Button'
 import { deleteNews } from '../../utils/deleteNews'
-import NewsContext from '../../utils/context'
 import { useNavigate } from 'react-router-dom'
+import { useNews } from '../../zustand/store'
 
 const AdminNewsCard = ({ news }) => {
-  const { reloadNews, setReloadNews } = useContext(NewsContext)
+  const getNews = useNews(state => state.getNews)
   const newsDate = moment(news.date.seconds*1000).format("DD MMM YYYY")
   const navigate = useNavigate()
 
   const deleteNewsFromDb = (id) => {
-    setReloadNews(!reloadNews);
+    getNews()
     deleteNews(id)
   }
 

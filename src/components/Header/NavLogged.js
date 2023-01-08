@@ -1,22 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import NewsContext from "../../utils/context";
+import { useAccessToken, useAdmin, useModal } from "../../zustand/store";
 
 const NavLogged = () => {
-  const { setAccessToken, setToggleModal, isAdminLogged, setIsAdminLogged, } = useContext(NewsContext);
+  const createAdminModal = useModal(state => state.openCreateAdmin)
+  const closeAllModals = useModal(state => state.closeAll)
+  const clearAccessToken = useAccessToken(state => state.clearAccessToken)
+  const isAdminLogged = useAdmin(state => state.isAdminLogged)
+  const setIsAdminLogged = useAdmin(state => state.setIsAdminLogged)
 
   const logOut = () => {
     sessionStorage.clear();
-    setAccessToken(false);
     setIsAdminLogged(false);
-    setToggleModal({ login: false, register: false, createAdmin: false });
+    clearAccessToken();
+    closeAllModals();
   };
   
   return (
     <div className="navLogged">
       {isAdminLogged && <Link to="/admin">Admin Panel</Link>}
       {isAdminLogged && (
-        <p onClick={() => setToggleModal({ login: false, register: false, createAdmin: true }) }>
+        <p onClick={createAdminModal }>
           Create new admin
         </p>
       )}

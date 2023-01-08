@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import NewsContext from "../utils/context";
 import handleRegister from "../utils/auth_register";
 import FormAuth from "../components/Modal/FormAuth";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useModal } from "../zustand/store";
 
 const RegisterModal = () => {
-  const { setToggleModal } = useContext(NewsContext);
+  const closeAllModals = useModal(state => state.closeAll)
 
   const formValidation = Yup.object().shape({
     email: Yup.string().required("This field is required!").email("Invalid email"),
@@ -17,9 +17,7 @@ const RegisterModal = () => {
   return ReactDOM.createPortal(
     <div id="login-register">
       <button
-        onClick={() =>
-          setToggleModal({ login: false, register: false, createAdmin: false })
-        }
+        onClick={closeAllModals}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,15 +48,7 @@ const RegisterModal = () => {
             touched={touched}
             heading="REGISTER"
             btnName="Register"
-            method={() =>
-              handleRegister(values.email, values.password, () =>
-                setToggleModal({
-                  login: false,
-                  register: false,
-                  createAdmin: false,
-                })
-              )
-            }
+            method={() => handleRegister(values.email, values.password, closeAllModals)}
           />
         )}
       </Formik>

@@ -1,32 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import NewsContext from "../utils/context";
 import FormAuth from "../components/Modal/FormAuth";
 import { addNewAdmin } from "../utils/addNewAdmin";
 import handleRegister from "../utils/auth_register";
+import { useModal } from "../zustand/store";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const CreateAdminModal = () => {
-  const [data, setData] = useState({ email: "", password: "" });
-  const { setToggleModal } = useContext(NewsContext);
+  const closeAllModals = useModal((state) => state.closeAll);
 
-  const createNewAdmin = (e) => {
-    e.preventDefault()
-    addNewAdmin(data.email, "admin")
-    .then(() => {
-      handleRegister(
-        e, 
-        data.email, 
-        data.password, 
-        () => setToggleModal({ login: false, register: false, createAdmin: false})
-      )
-    })
-  }
+  const createNewAdmin = (e, email, password) => {
+    e.preventDefault();
+    addNewAdmin(email, "admin")
+    .then(() => handleRegister(e, email, password, closeAllModals));
+  };
+
+  const formValidation = Yup.object().shape({
+    email: Yup.string().required("This field is required!").email("Invalid email"),
+    password: Yup.string().required("This field is required!").min(8, "Minimum 8 characters"),
+  });
 
   return ReactDOM.createPortal(
     <div id="login-register">
-      <button
-        onClick={() => setToggleModal({ login: false, register: false, createAdmin: false })}
-      >
+      <button onClick={closeAllModals}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -42,13 +39,24 @@ const CreateAdminModal = () => {
           />
         </svg>
       </button>
-      <FormAuth
-        heading="CREATE NEW ADMIN"
-        data={data}
-        setData={setData}
-        method={(e) => createNewAdmin(e)}
-        btnName="Register"
-      />
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        validationSchema={formValidation}
+      >
+        {({ values, errors, touched }) => (
+          <FormAuth
+            data={values}
+            errors={errors}
+            touched={touched}
+            heading="CREATE NEW ADMIN"
+            btnName="Register"
+            method={(e) => createNewAdmin(e, values.email, values.password)}
+          />
+        )}
+      </Formik>
     </div>,
     document.getElementById("modal")
   );
