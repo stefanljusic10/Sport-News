@@ -1,0 +1,17 @@
+#latestNewsCard{
+    background-color: rgb(237, 237, 237);
+    padding: .8rem;
+    cursor: pointer;
+
+    &:nth-child(2n){
+        background-color: rgb(245, 245, 245);
+    }
+
+    &:hover{
+        background-color: rgb(229, 229, 229);
+    }
+
+    & > span{
+        color: $color-yellow;
+    }
+}

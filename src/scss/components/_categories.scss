@@ -1,0 +1,64 @@
+#categories{
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: .5rem 5rem;
+    background-color: $color-yellow;
+    color: $color-violet;
+
+    @include respond(bp-1024){
+        display: none;
+    }
+    
+    & > li{
+        position: relative;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.3rem;
+        cursor: pointer;
+        
+        &:hover > img{
+            content: url("../../assets/iconmonstr-arrow-66.svg");
+        }
+
+        & > img{
+            margin-left: 5px;
+            width: 1rem;
+        }
+
+        & > .categories__dropdown{
+            display: none;
+            width: 12rem;
+            position: absolute;
+            top: 1.4rem;
+            left: 0;
+            padding: .3rem;
+            list-style: none;
+            text-align: left;
+            background-color: $color-yellow;
+
+            & > li{
+                padding: .2rem;
+                font-size: 1rem;
+
+                &:hover{
+                    background-color: $color-violet;
+                    color: $color-yellow;
+                }
+            }
+        }
+
+        &:hover > .categories__dropdown{
+            display: block;
+        }
+    }
+
+    & > li:not(:last-child){
+        margin-right: 2rem;
+    }
+}

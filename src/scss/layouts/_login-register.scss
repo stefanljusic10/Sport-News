@@ -1,0 +1,23 @@
+#login-register{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $color-violet;
+    color: white;
+
+    & > button{
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        & > svg{
+            width: 3rem;
+            color: $color-yellow;
+        }
+    }
+}

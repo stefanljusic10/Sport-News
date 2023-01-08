@@ -1,0 +1,27 @@
+#hashtags{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .2rem;
+
+    & > span{
+        @include inputBox;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        background-color: $color-violet-ddwn;
+        color: white;
+        border-radius: 2rem;
+
+        & > img{
+            margin-left: .5rem;
+            width: 1.2rem;
+            cursor: pointer;
+        }
+    }
+
+    & > input{
+        @include inputBox;
+        width: 25%;
+    }
+}

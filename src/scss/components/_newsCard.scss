@@ -1,0 +1,19 @@
+#newsCard{
+    & > h2{
+        font-size: 1.2rem
+    }
+}
+
+.newsCard{
+    @include boxShadow;
+    cursor: pointer;
+
+    & > img{
+        width: 100%;
+    }
+
+    & > h2{
+        padding: .5rem 1rem;
+        font-size: 2rem;
+    }
+}

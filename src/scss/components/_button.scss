@@ -1,0 +1,12 @@
+.btn{
+    min-width: 8rem;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.btnEdit{ background-color: $color-skyblue-btn; }
+.btnDelete{ background-color: $color-red-btn; }
+.btnCreate{ background-color: $color-green-btn; }

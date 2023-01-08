@@ -1,0 +1,46 @@
+#formAuth{
+    width: 25%;
+    margin: 10rem auto;
+    text-align: center;
+    
+    & > h2{
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+    }
+    // & > *:not(:last-child, :first-child){
+    //     margin-bottom: .5rem;
+    // }
+
+    & > div{
+        margin-bottom: .6rem;
+        & > input{
+            display: block;
+            width: 100%;
+            padding: .5rem 1.5rem;
+            border-radius: 2rem;
+            border: none;
+        }
+        & > input:focus{
+            outline: none;
+        }
+    }
+    & > button{
+        width: 100%;
+        padding: .5rem 1.5rem;
+        border-radius: 2rem;
+        border: none;
+        cursor: pointer;
+    }
+    & > .btnSubmit{
+        background-color: $color-yellow;
+        color: $color-violet;
+    }
+    & > .btnGoToRegister{
+        background-color: transparent;
+        color: $color-yellow;
+    }
+    & > .btnGoToRegister:hover{
+        text-decoration: underline;
+    }
+}

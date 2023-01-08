@@ -1,0 +1,28 @@
+#dropdown{
+    width: 100%;
+    cursor: pointer;
+    & > div:first-child{
+        @include inputBox;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        padding: .5rem 1rem;
+
+        & > img{
+            width: 1rem;
+            margin-left: 1rem
+        }
+    }
+
+    & > div:last-child{
+        & > p{
+            @include inputBox;
+            &:hover{
+                background-color: $color-violet-ddwn;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+#sortNews{
+    display: flex;
+    gap: .5rem;
+    font-size: .8rem;
+    padding: .2rem 1rem;
+    margin-top: 1rem;
+
+    & > *{
+        margin: 0 auto;
+        flex-basis: 20%;
+        color: $color-very-light-grey;
+        font-weight: 700;
+        
+        & > span{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            
+            & > img{
+                width: .8rem;
+            }
+
+            & > .dropdownArrow{
+                margin-left: 3px;
+            }
+        }
+    }
+    & > .category{
+        position: relative;
+        & > .sort__dropdown{
+            position: absolute;
+            background-color: white;
+            border-radius: .3rem;
+            border: 2px solid $color-very-light-grey;
+            padding: .2rem;
+
+            & > p{
+                border-radius: .3rem;
+                padding: .2rem .5rem;
+                cursor: pointer;
+            }
+
+            & > p:hover{
+                background-color: $color-very-light-grey;
+                color: white;
+            }
+        }
+    }
+}

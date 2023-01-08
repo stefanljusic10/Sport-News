@@ -1,0 +1,17 @@
+#news{
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
+    // color: $color-dark-grey;
+
+    & > .news__box{
+        flex-basis: 70%;
+
+        & > div:last-child{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+    }
+}

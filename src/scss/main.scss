@@ -1,0 +1,27 @@
+@import './abstract/variables';
+@import './abstract/mixins';
+
+@import './base/base';
+
+@import './utils.scss/error';
+
+@import './layouts/news';
+@import './layouts/adminPanel';
+@import './layouts/login-register';
+@import './layouts/selectedNews';
+
+@import './components/header';
+@import './components/categories';
+@import './components/footer';
+@import './components/loggedAvatar';
+@import './components/mainNewsCard';
+@import './components/newsCard';
+@import './components/latestNews';
+@import './components/latestNewsCard';
+@import './components/adminNewsCard';
+@import './components/button';
+@import './components/sortNews';
+@import './components/dropdown';
+@import './components/createNews';
+@import './components/hashtags';
+@import './components/formAuth';

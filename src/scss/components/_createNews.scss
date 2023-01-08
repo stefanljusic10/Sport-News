@@ -1,0 +1,30 @@
+#createNews {
+  & > h2 {
+    width: 100%;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  & > .formBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+
+    & > * {
+      margin-bottom: 1rem;
+      width: 48%;
+      & > input,
+      textarea {
+        width: 100%;
+        @include inputBox;
+      }
+      & > textarea {
+        height: 15rem;
+      }
+    }
+    & > .text, .tags{
+      width: 100%;
+    }
+
+  }
+}

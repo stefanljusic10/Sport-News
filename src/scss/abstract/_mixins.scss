@@ -1,0 +1,44 @@
+@mixin boxShadow {
+  -webkit-box-shadow: 0px 5px 18px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 18px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 18px -6px rgba(0, 0, 0, 0.75);
+}
+
+@mixin inputBox {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid $color-violet;
+  outline: none;
+  &:focus{
+    border: 2px solid $color-violet;
+  }
+}
+
+// MEDIA QUERIES - RESPONSIVNESS
+@mixin respond($breakpoint) {
+  @if $breakpoint == bp-1200 {
+    @media (max-width: 75rem) {
+      @content;
+    } // 75rem = 1200px
+  }
+  @if $breakpoint == bp-1024 {
+    @media (max-width: 64rem) {
+      @content;
+    } // 64rem = 1024px
+  }
+  @if $breakpoint == bp-900 {
+    @media (max-width: 56.25rem) {
+      @content;
+    } // 56.25rem = 900px
+  }
+  @if $breakpoint == bp-768 {
+    @media (max-width: 48rem) {
+      @content;
+    } // 48rem = 768px
+  }
+  @if $breakpoint == bp-640 {
+    @media (max-width: 40rem) {
+      @content;
+    } // 40rem = 640px
+  }
+}
