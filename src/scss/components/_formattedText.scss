@@ -1,0 +1,8 @@
+#formattedText{
+    padding: 3rem 0;
+    & > p{
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+        white-space: pre-line;
+    }
+}
