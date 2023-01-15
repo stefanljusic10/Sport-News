@@ -9,12 +9,14 @@ import SelectedNews from "./pages/SelectedNews";
 import AdminPanel from "./pages/AdminPanel";
 import CreateNews from "./components/AdminPanel/CreateNews";
 import EditNews from "./pages/EditNews";
+import Error from "./pages/Error";
 import ScrollToTop from "./utils/ScrollToTop";
 import CreateAdminModal from "./pages/CreateAdminModal";
 import { NavigationMenu } from "./utils/NavigationMenu";
 import { useNews, useModal, useAdmin } from "./zustand/store";
 import shallow from "zustand/shallow";
 import "./scss/main.scss";
+import AdminAuthorization from "./utils/AdminAuthorization";
 
 const App = () => {
   const setNews = useNews((state) => state.setNews);
@@ -23,7 +25,7 @@ const App = () => {
     (state) => ({
       loginModal: state.login,
       registerModal: state.register,
-      createAdminModal: state.createAdmin,
+      createAdminModal: state.createAdmin
     }),
     shallow
   );
@@ -34,6 +36,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <AdminAuthorization />
       <ScrollToTop />
       <NavigationMenu />
       <Header />
@@ -43,9 +46,9 @@ const App = () => {
           <Route path="/:category" element={<News />} />
           <Route path="/:category/:subcategory" element={<News />} />
           <Route path="/:category/:subcategory/:id" element={<SelectedNews />} />
-          <Route path="/admin" element={isAdminLogged && <AdminPanel />} />
-          <Route path="/admin/create" element={isAdminLogged && <CreateNews />} />
-          <Route path="/admin/edit/:id" element={isAdminLogged && <EditNews />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin/create" element={<CreateNews />} />
+          <Route path="/admin/edit/:id" element={<EditNews />} />
         </Routes>
         {loginModal && <LoginModal />}
         {registerModal && <RegisterModal />}

@@ -15,3 +15,11 @@ export const listOfCategories = {
     TENIS: ["ATP", "WTA", "GRAND SLAMS", "MASTERS", "DAVIS CUP"],
     OTHER: ["WATERPOLO", "VOLLEYBALL", "HANDBALL", "CHESS", "HOKEY"]
 };
+
+const primaryCategories = []
+
+for (const cat in listOfCategories) {
+  primaryCategories.push(cat);
+}
+
+export { primaryCategories }

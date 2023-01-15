@@ -3,7 +3,7 @@ import NavigateToRegister from "./NavigateToRegister";
 import { Form, Field } from "formik"
 import Button from "../Button/Button";
 
-const FormAuth = ({ heading, errors, touched, method, btnName }) => {
+const FormAuth = ({ heading, errors, touched, btnName, method }) => {
   const submitForm = (e) => {
     e.preventDefault()
     method()

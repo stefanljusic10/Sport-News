@@ -5,11 +5,18 @@ import MainNewsCard from "../components/News/MainNewsCard";
 import NewsCard from "../components/News/NewsCard";
 import formatString from "../utils/formatString";
 import { useNews } from "../zustand/store";
+import Button from "../components/Button/Button";
+import Error from "../pages/Error";
+import { primaryCategories } from "../utils/listOfCategories";
 
 const News = () => {
   const news = useNews((state) => state.news);
   const { category, subcategory } = useParams();
   let filteredNews = news;
+
+  if(category && !primaryCategories.includes(category.toUpperCase()))
+    return <Error />
+  
 
   if (category && !subcategory)
     filteredNews = news.filter((e) => formatString(e.category.primary) === category);
@@ -24,7 +31,10 @@ const News = () => {
     <div id="news">
       <div className="news__box">
         {mainNews ? <MainNewsCard news={mainNews} /> : null}
-        <div id="news__grid">{renderNews}</div>
+        <div id="news__grid">
+          {renderNews}
+      {/* <Button text="Load more" btnClass="btnLoadMore" /> */}
+        </div>
       </div>
       <LatestNews />
     </div>

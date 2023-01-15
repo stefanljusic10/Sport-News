@@ -6,14 +6,18 @@ import handleRegister from "../utils/auth_register";
 import { useModal } from "../zustand/store";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CreateAdminModal = () => {
   const closeAllModals = useModal((state) => state.closeAll);
+  const navigate = useNavigate()
 
-  const createNewAdmin = (e, email, password) => {
-    e.preventDefault();
+  const createNewAdmin = (email, password) => {
     addNewAdmin(email, "admin")
-    .then(() => handleRegister(e, email, password, closeAllModals));
+    .then(() => {
+      handleRegister(email, password, closeAllModals)
+      navigate("/admin")
+    })
   };
 
   const formValidation = Yup.object().shape({
@@ -53,7 +57,7 @@ const CreateAdminModal = () => {
             touched={touched}
             heading="CREATE NEW ADMIN"
             btnName="Register"
-            method={(e) => createNewAdmin(e, values.email, values.password)}
+            method={() => createNewAdmin(values.email, values.password)}
           />
         )}
       </Formik>

@@ -8,7 +8,7 @@ const handleRegister = (email, password, callback) => {
       callback()
     })
     .catch((error) => {
-      console.log('greska');
+      console.log(error);
     });
 };
 

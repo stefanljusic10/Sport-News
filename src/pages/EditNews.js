@@ -11,7 +11,7 @@ import { useNews } from '../zustand/store';
 
 const EditNews = () => {
     const {id} = useParams()
-    const getNews = useNews(state => state.getNews)
+    const setNews = useNews(state => state.setNews)
     const navigate = useNavigate()
     const editNews = JSON.parse(sessionStorage.getItem('editNews'))
     const parsedDate = (dateValue) => moment(dateValue).format("YYYY-MM-DD")
@@ -44,7 +44,7 @@ const EditNews = () => {
         onSubmit={(val) => {
           editSelectedNews(id, val)
           .then(() => {
-            getNews()
+            setNews()
             navigate("/admin")
           })
           .catch(error => {
