@@ -15,7 +15,7 @@ const AdminPanel = () => {
     <div id="adminPanel">
       <h2>Admin Panel</h2>
       <Button text='CREATE' btnClass='btn btnCreate' method={() => navigate('/admin/create')} />
-      <SortNews />
+      {/* <SortNews /> */}
       <div className="adminPanel__cards">
         {cards}
       </div>
