@@ -5,6 +5,10 @@
     padding: .2rem 1rem;
     margin-top: 1rem;
 
+    @include respond(bp-1024){
+        display: none;
+    }
+
     & > *{
         margin: 0 auto;
         flex-basis: 20%;
@@ -15,6 +19,9 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            @include respond(bp-1024){
+                display: none;
+            }
             
             & > img{
                 width: .8rem;

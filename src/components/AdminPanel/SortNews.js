@@ -3,13 +3,11 @@ import { listOfCategories } from '../../utils/listOfCategories'
 import downArrowSort from '../../assets/down-arrow-sort.svg'
 import dropdownArrow from '../../assets/dropdown-arrow.svg'
 
-const SortNews = ({ setSortByAuthor, setSortByDate, setFilterByCategory }) => {
+const SortNews = () => {
 
   const [toggleDropdown, setToggleDropdown] = useState(false)
 
   const pickCategory = (e) => {
-    // console.log(e.target.innerText);
-    setFilterByCategory(e.currentTarget.innerText)
     setToggleDropdown(false)
   }
 
@@ -23,7 +21,7 @@ const SortNews = ({ setSortByAuthor, setSortByDate, setFilterByCategory }) => {
   return (
     <div id="sortNews">
         <div>
-          <span onClick={() => setSortByAuthor(prev => !prev)}>
+          <span>
             author
             <img src={downArrowSort} alt="desc" />
           </span>

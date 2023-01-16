@@ -16,6 +16,11 @@
 
 // MEDIA QUERIES - RESPONSIVNESS
 @mixin respond($breakpoint) {
+  @if $breakpoint == bp-1350 {
+    @media (max-width: 84.375rem) {
+      @content;
+    } // 84.375rem = 1350px
+  }
   @if $breakpoint == bp-1200 {
     @media (max-width: 75rem) {
       @content;

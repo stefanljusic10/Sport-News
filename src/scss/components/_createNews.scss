@@ -8,11 +8,19 @@
   & > .formBox {
     display: flex;
     flex-wrap: wrap;
-    gap: 4%;
+    gap: 2%;
+
+    @include respond(bp-768){
+      display: block;
+    }
 
     & > * {
       margin-bottom: 1rem;
-      width: 48%;
+      width: 49%;
+      @include respond(bp-768){
+        width: 100%;
+      }
+
       & > input,
       textarea {
         width: 100%;

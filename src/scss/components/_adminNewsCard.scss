@@ -4,6 +4,10 @@
     padding: 1rem;
     @include boxShadow;
 
+    @include respond(bp-1024){
+        display: block;
+    }
+
     &:not(:last-child){
         margin-bottom: 1rem;
     }
@@ -19,6 +23,13 @@
     }
     & > *:not(:last-child){
         border-right: 1px solid black;
+        @include respond(bp-1024){
+            flex-direction: row;
+            justify-content: start;
+            border: none;
+            margin-bottom: .5rem;
+            font-size: 1.2rem;
+        }
     }
     & > div > p:first-child{
         font-weight: 700;
@@ -30,6 +41,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @include respond(bp-1024){
+            margin-top: 2rem;
+        }
     }
     & > div > button{
         display: block;

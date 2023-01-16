@@ -16,7 +16,9 @@ const AdminPanel = () => {
       <h2>Admin Panel</h2>
       <Button text='CREATE' btnClass='btn btnCreate' method={() => navigate('/admin/create')} />
       <SortNews />
-      {cards}
+      <div className="adminPanel__cards">
+        {cards}
+      </div>
     </div>
   )
 }

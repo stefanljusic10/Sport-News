@@ -9,7 +9,7 @@ import Button from "../components/Button/Button";
 import Error from "../pages/Error";
 import { primaryCategories } from "../utils/listOfCategories";
 
-const News = () => {
+const Landing = () => {
   const news = useNews((state) => state.news);
   const { category, subcategory } = useParams();
   let filteredNews = news;
@@ -31,9 +31,8 @@ const News = () => {
     <div id="news">
       <div className="news__box">
         {mainNews ? <MainNewsCard news={mainNews} /> : null}
-        <div id="news__grid">
+        <div>
           {renderNews}
-      {/* <Button text="Load more" btnClass="btnLoadMore" /> */}
         </div>
       </div>
       <LatestNews />
@@ -41,4 +40,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Landing;

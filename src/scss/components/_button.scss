@@ -7,9 +7,24 @@
     cursor: pointer;
 }
 
-.btnEdit{ background-color: $color-skyblue-btn; }
-.btnDelete{ background-color: $color-red-btn; }
-.btnCreate{ background-color: $color-green-btn; }
+.btnEdit{ 
+    background-color: $color-skyblue-btn; 
+    @include respond(bp-1024){
+        width: 100%;
+    }
+}
+.btnDelete{ 
+    background-color: $color-red-btn; 
+    @include respond(bp-1024){
+        width: 100%;
+    }
+}
+.btnCreate{ 
+    background-color: $color-green-btn; 
+    @include respond(bp-1024){
+        // width: 50%;
+    }
+}
 .btnLoadMore{
     padding: 1rem;
     width: 100%;

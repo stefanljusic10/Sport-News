@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom'
 import { useNews } from '../../zustand/store'
 
 const AdminNewsCard = ({ news }) => {
-  const getNews = useNews(state => state.getNews)
+  const setNews = useNews(state => state.setNews)
   const newsDate = moment(news.date.seconds*1000).format("DD MMM YYYY")
   const navigate = useNavigate()
 
-  const deleteNewsFromDb = (id) => {
-    getNews()
-    deleteNews(id)
+  const deleteNewsFromDb = async (id) => {
+    await deleteNews(id)
+    setNews()
   }
 
   const edit = (news) => {

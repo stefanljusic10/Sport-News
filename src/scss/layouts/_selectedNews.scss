@@ -2,9 +2,21 @@
     width: 65%;
     margin: 0 auto;
 
+    @include respond(bp-1024){
+        width: 100%;
+    }
+
     & > h2{
         font-size: 2.6rem;
         font-weight: 900;
+
+        @include respond(bp-1024){
+            font-size: 2rem;
+        }
+
+        @include respond(bp-768){
+            font-size: 1.6rem;
+        }
     }
 
     & > p{

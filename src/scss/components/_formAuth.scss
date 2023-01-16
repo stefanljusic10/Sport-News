@@ -2,15 +2,20 @@
     width: 25%;
     margin: 10rem auto;
     text-align: center;
+
+    @include respond(bp-1024){
+        width: 50%;
+    }
+
+    @include respond(bp-640){
+        width: 90%;
+    }
     
     & > h2{
         font-size: 2rem;
         font-weight: 400;
         margin-bottom: 2rem;
     }
-    // & > *:not(:last-child, :first-child){
-    //     margin-bottom: .5rem;
-    // }
 
     & > div{
         margin-bottom: .6rem;

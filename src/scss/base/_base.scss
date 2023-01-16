@@ -13,4 +13,8 @@ body{
 main{
     padding: 1rem 10rem;
     color: $color-dark-grey;
+
+    @include respond(bp-1350){
+        padding: 1rem;
+    }
 }

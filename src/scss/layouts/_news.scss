@@ -3,6 +3,10 @@
     gap: 1rem;
     margin: 0 auto;
 
+    @include respond(bp-768){
+        display: block;
+    }
+
     & > .news__box{
         flex-basis: 70%;
 
@@ -11,6 +15,14 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
+
+            @include respond(bp-1024){
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include respond(bp-768){
+                display: block;
+            }
         }
     }
 }

@@ -1,3 +1,6 @@
 #mainNewsCard{
-    margin-bottom: 2rem
+    margin-bottom: 2rem;
+    @include respond(bp-768){
+        margin-bottom: 1rem;
+    }
 }

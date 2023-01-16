@@ -1,5 +1,9 @@
 #formattedText{
     padding: 3rem 0;
+
+    @include respond(bp-1024){
+        padding: 1rem 0;
+    }
     & > p{
         font-size: 1.1rem;
         line-height: 1.8rem;
