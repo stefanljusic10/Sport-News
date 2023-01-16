@@ -49,7 +49,9 @@ const useAccessToken = create((set) => ({
 
 const useAdmin = create((set) => ({
   isAdminLogged: sessionStorage.getItem("isAdminLogged"),
-  setIsAdminLogged: () => set(() => ({ isAdminLogged: sessionStorage.getItem("isAdminLogged") }))
+  loginMessage: "",
+  setIsAdminLogged: () => set(() => ({ isAdminLogged: sessionStorage.getItem("isAdminLogged") })),
+  setLoginMessage: (val) => set(() => ({ loginMessage: val })),
 }));
 
 export { useNews, useModal, useAccessToken, useAdmin };

@@ -4,10 +4,11 @@ import handleRegister from "../utils/auth_register";
 import FormAuth from "../components/Modal/FormAuth";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useModal } from "../zustand/store";
+import { useAdmin, useModal } from "../zustand/store";
 
 const RegisterModal = () => {
   const closeAllModals = useModal(state => state.closeAll)
+  const setLoginMessage = useAdmin(state => state.setLoginMessage)
 
   const formValidation = Yup.object().shape({
     email: Yup.string().required("This field is required!").email("Invalid email"),
@@ -48,7 +49,14 @@ const RegisterModal = () => {
             touched={touched}
             heading="REGISTER"
             btnName="Register"
-            method={() => handleRegister(values.email, values.password, closeAllModals)}
+            method={() => 
+              handleRegister(
+                values.email, 
+                values.password, 
+                closeAllModals, 
+                setLoginMessage
+              )
+            }
           />
         )}
       </Formik>

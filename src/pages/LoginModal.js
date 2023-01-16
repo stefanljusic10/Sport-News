@@ -11,6 +11,7 @@ const LoginModal = () => {
   const navigate = useNavigate();
   const closeAllModals = useModal(state => state.closeAll)
   const setIsAdminLogged = useAdmin(state => state.setIsAdminLogged)
+  const setLoginMessage = useAdmin(state => state.setLoginMessage)
   const setAccessToken = useAccessToken(state => state.setAccessToken)
   
 
@@ -58,7 +59,8 @@ const LoginModal = () => {
                 navigate,
                 closeAllModals,
                 setAccessToken,
-                setIsAdminLogged
+                setIsAdminLogged,
+                setLoginMessage
               )
             }
           />

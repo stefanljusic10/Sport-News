@@ -2,7 +2,7 @@ import React from "react";
 import { useModal } from "../../zustand/store";
 
 const NavigateToRegister = () => {
-  const registerModal = useModal((state) => state.openRegisterModal);
+  const registerModal = useModal((state) => state.openRegister);
 
   const navigateToRegister = (e) => {
     e.preventDefault();

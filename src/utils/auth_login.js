@@ -8,12 +8,14 @@ const handleLogin = (
   navigate,
   closeAllModals,
   setAccessToken,
-  setIsAdminLogged
+  setIsAdminLogged,
+  setLoginMessage
 ) => {
   const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password).then((res) => {
     // Signed in
     sessionStorage.setItem("accessToken", res._tokenResponse.idToken);
+    setLoginMessage("");
     closeAllModals();
     setAccessToken();
 
@@ -38,6 +40,7 @@ const handleLogin = (
     getUsers();
   })
   .catch((error) => {
+    setLoginMessage("Wrong email or password!");
     console.log(error);
   });
 };
