@@ -4,7 +4,7 @@ const FormattedText = ({ clickedNews }) => {
   const text = clickedNews?.text || ""
 
   return (
-    <div id="formattedText">
+    <div className="formattedText">
       <p>{text}</p>
     </div>
   );

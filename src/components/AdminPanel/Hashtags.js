@@ -5,7 +5,7 @@ import { addHashtag, removeHashtag } from "../../utils/handleHashtags";
 
 const Hashtags = ({ valueTags, setFieldValue }) => {
   return (
-    <div id="hashtags">
+    <div className="hashtags">
       {valueTags.map((tag) => (
         <span key={tag + Math.random()}>
           {tag}

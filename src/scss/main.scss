@@ -3,13 +3,15 @@
 
 @import './base/base';
 
-@import './utils.scss/error';
+@import './utils/error';
+@import './utils/hashtags';
 
-@import './layouts/news';
+@import './layouts/landing';
 @import './layouts/adminPanel';
 @import './layouts/login-register';
 @import './layouts/selectedNews';
 @import './layouts/errorPage';
+@import './layouts/menu';
 
 @import './components/header';
 @import './components/categories';
@@ -23,7 +25,8 @@
 @import './components/button';
 @import './components/sortNews';
 @import './components/dropdown';
-@import './components/createNews';
-@import './components/hashtags';
+@import './components/formNews';
 @import './components/formAuth';
 @import './components/formattedText';
+@import './components/navbar';
+@import './components/menuIcon';

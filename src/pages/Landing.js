@@ -28,7 +28,7 @@ const Landing = () => {
   const renderNews = otherNews.map((e) => <NewsCard news={e} key={e.id} />);
 
   return (
-    <div id="news">
+    <div className="landing">
       <div className="news__box">
         {mainNews ? <MainNewsCard news={mainNews} /> : null}
         <div>

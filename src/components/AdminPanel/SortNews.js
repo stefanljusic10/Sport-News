@@ -19,7 +19,7 @@ const SortNews = () => {
   }
 
   return (
-    <div id="sortNews">
+    <div className="sortNews">
         <div>
           <span>
             author

@@ -12,7 +12,7 @@ const SelectedNews = () => {
   const newsDate = moment(clickedNews?.date.seconds*1000).format("DD MMM YYYY hh:mm a").slice(0, -3)
 
   return (
-    <div id="selectedNews">
+    <div className="selectedNews">
       <h2>{clickedNews?.headline}</h2>
       <p>
         <span>Author: </span>{clickedNews?.author} - {newsDate}

@@ -46,7 +46,7 @@ const CreateNews = () => {
       }}
     >
       {({ values, setFieldValue, errors, touched }) => (
-        <Form id="createNews">
+        <Form className="formNews">
           <h2>Create piece of news</h2>
           <div className="formBox">
             <div>

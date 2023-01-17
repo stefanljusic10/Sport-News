@@ -16,7 +16,7 @@ const RegisterModal = () => {
   });
 
   return ReactDOM.createPortal(
-    <div id="login-register">
+    <div className="login-register">
       <button
         onClick={closeAllModals}
       >

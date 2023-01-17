@@ -1,15 +1,18 @@
-#adminNewsCard{
+.adminNewsCard{
     display: flex;
     gap: .5rem;
     padding: 1rem;
     @include boxShadow;
 
     @include respond(bp-1024){
-        display: block;
+        flex-direction: column;
     }
 
     &:not(:last-child){
         margin-bottom: 1rem;
+        @include respond(bp-1024){
+            margin: 0;
+        }
     }
     
     & > *{
@@ -20,6 +23,10 @@
         flex-basis: 20%;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @include respond(bp-1024){
+            flex-basis: content;
+        }
     }
     & > *:not(:last-child){
         border-right: 1px solid black;
@@ -43,7 +50,7 @@
         justify-content: center;
 
         @include respond(bp-1024){
-            margin-top: 2rem;
+            margin-top: auto;
         }
     }
     & > div > button{

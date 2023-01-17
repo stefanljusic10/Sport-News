@@ -28,7 +28,6 @@ const Dropdown = ({ category, formikCategories, setFieldValue }) => {
     setDisplayDropdown(!displayDropdown)
     if(e.target.tagName === "P"){
       if(category === "primary"){
-        // formikCategories[category] = e.target.innerText
         setFieldValue("category.primary", e.target.innerText)
       }
       else setFieldValue("category.secondary", e.target.innerText)
@@ -42,7 +41,7 @@ const Dropdown = ({ category, formikCategories, setFieldValue }) => {
   secondaryCategories.map((category) => <p key={category}>{category}</p>)
 
   return (
-    <div id="dropdown" onClick={(e) => toggleDropdown(e)}>
+    <div className="dropdown" onClick={(e) => toggleDropdown(e)}>
       <div>{selectedCategory}<img src={arrowDown} alt="dropdown" /></div>
       {displayDropdown && <div>{renderCategories}</div>}
     </div>

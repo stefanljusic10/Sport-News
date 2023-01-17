@@ -8,7 +8,7 @@ const LatestNews = () => {
   const renderLatestNews = sortedNews.map(e => <LatestNewsCard news={e} key={e.id} />)
 
   return (
-    <div id="latestNews">
+    <div className="latestNews">
         <h2>LATEST NEWS</h2>
         {renderLatestNews}
     </div>

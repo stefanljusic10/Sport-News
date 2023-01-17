@@ -21,7 +21,7 @@ const AdminNewsCard = ({ news }) => {
   }
 
   return (
-    <div id="adminNewsCard">
+    <div className="adminNewsCard">
         <div>
           <p>Author:</p>
           <p>{news.author}</p>
@@ -35,8 +35,8 @@ const AdminNewsCard = ({ news }) => {
           <p>{news.category.primary}</p>
         </div>
         <div>
-          <p>Tags:</p>
-          <p>{news.tags[0]}</p>
+          <p>Headline:</p>
+          <p>{news.headline}</p>
         </div>
         <div>
           <Button text='EDIT' btnClass='btn btnEdit' method={() => edit(news)} />

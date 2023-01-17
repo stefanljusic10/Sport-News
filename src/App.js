@@ -12,18 +12,21 @@ import EditNews from "./pages/EditNews";
 import AdminAuthorization from "./utils/AdminAuthorization";
 import ScrollToTop from "./utils/ScrollToTop";
 import CreateAdminModal from "./pages/CreateAdminModal";
-import { NavigationMenu } from "./utils/NavigationMenu";
 import { useNews, useModal } from "./zustand/store";
 import shallow from "zustand/shallow";
+import MenuModal from "./pages/MenuModal";
+import Categories from "./components/Header/Categories";
+import GetScreenWidth from "./utils/GetScreenWidth";
 import "./scss/main.scss";
 
 const App = () => {
   const setNews = useNews((state) => state.setNews);
-  const { loginModal, registerModal, createAdminModal } = useModal(
+  const { loginModal, registerModal, createAdminModal, menuModal } = useModal(
     (state) => ({
       loginModal: state.login,
       registerModal: state.register,
-      createAdminModal: state.createAdmin
+      createAdminModal: state.createAdmin,
+      menuModal: state.menu
     }),
     shallow
   );
@@ -36,8 +39,9 @@ const App = () => {
     <BrowserRouter>
       <AdminAuthorization />
       <ScrollToTop />
-      <NavigationMenu />
+      <GetScreenWidth />
       <Header />
+      <Categories />
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -51,6 +55,7 @@ const App = () => {
         {loginModal && <LoginModal />}
         {registerModal && <RegisterModal />}
         {createAdminModal && <CreateAdminModal />}
+        {menuModal && <MenuModal />}
       </main>
       <Footer />
     </BrowserRouter>

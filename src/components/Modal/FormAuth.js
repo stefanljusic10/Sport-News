@@ -13,7 +13,7 @@ const FormAuth = ({ heading, errors, touched, btnName, method }) => {
   }
 
   return (
-    <Form id="formAuth">
+    <Form className="formAuth">
       <h2>{heading}</h2>
       {loginMessage && !errors.email && !errors.password && <div className="error">{loginMessage}</div>}
       <div>

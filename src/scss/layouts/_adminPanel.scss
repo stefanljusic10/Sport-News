@@ -1,15 +1,15 @@
-#adminPanel{
+.adminPanel{
     & > h2{
         font-size: 1.8rem;
         margin-bottom: 1rem;
     }
 
-    & > .adminPanel__cards{
+    &__cards{
+        margin-top: 1rem;
         @include respond(bp-1024){
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin-top: 1rem;
         }
         @include respond(bp-768){
             grid-template-columns: repeat(2, 1fr);

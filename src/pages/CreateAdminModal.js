@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import FormAuth from "../components/Modal/FormAuth";
+import { useNavigate } from "react-router-dom";
 import { addNewAdmin } from "../utils/addNewAdmin";
 import handleRegister from "../utils/auth_register";
 import { useModal } from "../zustand/store";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const CreateAdminModal = () => {
   const closeAllModals = useModal((state) => state.closeAll);
@@ -26,7 +26,7 @@ const CreateAdminModal = () => {
   });
 
   return ReactDOM.createPortal(
-    <div id="login-register">
+    <div className="login-register">
       <button onClick={closeAllModals}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

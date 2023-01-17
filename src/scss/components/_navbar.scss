@@ -1,0 +1,21 @@
+.navbar{
+    display: inherit;
+    list-style: none;
+
+    & > li{
+        cursor: pointer;
+    }
+
+    & > *:not(:last-child){
+        margin-right: 1rem;
+    }
+}
+
+.navbar__menu{
+    text-align: center;
+    order: 3;
+    flex-direction: column;
+    font-size: 2rem;
+    gap: 1rem;
+    margin-top: 3rem;
+}

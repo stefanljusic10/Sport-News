@@ -1,4 +1,4 @@
-#categories{
+.categories{
     position: sticky;
     top: 0;
     left: 0;
@@ -8,10 +8,6 @@
     padding: .5rem 5rem;
     background-color: $color-yellow;
     color: $color-violet;
-
-    @include respond(bp-1024){
-        display: none;
-    }
     
     & > li{
         position: relative;
@@ -60,5 +56,36 @@
 
     & > li:not(:last-child){
         margin-right: 2rem;
+    }
+}
+
+.categories__menu{
+    flex-direction: column;
+    background-color: transparent;
+    padding: 0;
+    color: $color-yellow;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1rem;
+    border-top: 2px solid $color-yellow;
+
+    & > li{
+        display: block;
+        font-size: 2.6rem;
+        & > .categories__dropdown{
+            width: 100%;
+            position: relative;
+            background-color: transparent;
+            top: 0;
+            padding-left: 2rem;
+            
+            & > li{
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    & > li:not(:last-child){
+        margin: 0;
     }
 }

@@ -1,0 +1,11 @@
+.menuIcon{
+    display: none;
+    width: 2rem;
+    margin-left: auto;
+    cursor: pointer;
+
+    @include respond(bp-1024){
+        display: block;
+        order: 1;
+    }
+}

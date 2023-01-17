@@ -21,7 +21,7 @@ const LoginModal = () => {
   });
 
   return ReactDOM.createPortal(
-    <div id="login-register">
+    <div className="login-register">
       <button onClick={closeAllModals}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

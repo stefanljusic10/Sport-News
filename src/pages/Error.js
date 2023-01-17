@@ -2,7 +2,7 @@ import React from 'react'
 
 const Error = () => {
   return (
-    <div id="errorPage">Page not found!</div>
+    <div className="errorPage">Page not found!</div>
   )
 }
 
