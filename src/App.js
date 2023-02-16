@@ -3,15 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Landing from "./pages/Landing";
 import Footer from "./components/Footer/Footer";
-import LoginModal from "./pages/LoginModal";
-import RegisterModal from "./pages/RegisterModal";
 import SelectedNews from "./pages/SelectedNews";
 import AdminPanel from "./pages/AdminPanel";
 import CreateNews from "./components/AdminPanel/CreateNews";
 import EditNews from "./pages/EditNews";
 import AdminAuthorization from "./utils/AdminAuthorization";
 import ScrollToTop from "./utils/ScrollToTop";
-import CreateAdminModal from "./pages/CreateAdminModal";
 import { useNews, useModal } from "./zustand/store";
 import shallow from "zustand/shallow";
 import MenuModal from "./pages/MenuModal";
@@ -53,9 +50,6 @@ const App = () => {
           <Route path="/admin/create" element={<CreateNews />} />
           <Route path="/admin/edit/:id" element={<EditNews />} />
         </Routes>
-        {/* {loginModal && <LoginModal />}
-        {registerModal && <RegisterModal />}
-        {createAdminModal && <CreateAdminModal />} */}
         {loginModal && <AuthModal heading="LOGIN" btnName="Login" />}
         {registerModal && <AuthModal heading="REGISTER" btnName="Register" />}
         {createAdminModal && <AuthModal heading="CREATE NEW ADMIN" btnName="Create" />}

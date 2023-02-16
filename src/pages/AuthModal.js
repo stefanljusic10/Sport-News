@@ -30,7 +30,7 @@ const AuthModal = ({ heading, btnName }) => {
   });
 
   return ReactDOM.createPortal(
-    <div className="login-register">
+    <div className="authModal">
       <CloseModal />
       <Formik
         initialValues={{
@@ -40,7 +40,7 @@ const AuthModal = ({ heading, btnName }) => {
         validationSchema={formValidation}
       >
         {({ values, errors, touched }) => (
-          <Form className="formAuth">
+          <Form className="form">
             <h2>{heading}</h2>
             {loginMessage && !errors.email && !errors.password && (
               <div className="error">{loginMessage}</div>

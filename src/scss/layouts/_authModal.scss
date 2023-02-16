@@ -20,4 +20,45 @@
             color: $color-yellow;
         }
     }
+
+    .form{
+        width: 25%;
+        margin: 10rem auto;
+        text-align: center;
+    
+        @include respond(bp-1024){
+            width: 50%;
+        }
+    
+        @include respond(bp-640){
+            width: 90%;
+        }
+        
+        & > h2{
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+    
+        & > div{
+            margin-bottom: .6rem;
+            & > input{
+                display: block;
+                width: 100%;
+                padding: .5rem 1.5rem;
+                border-radius: 2rem;
+                border: none;
+            }
+            & > input:focus{
+                outline: none;
+            }
+        }
+        & > button{
+            width: 100%;
+            padding: .5rem 1.5rem;
+            border-radius: 2rem;
+            border: none;
+            cursor: pointer;
+        }
+    }
 }
