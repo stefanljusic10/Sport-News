@@ -29,3 +29,17 @@
     padding: 1rem;
     width: 100%;
 }
+
+.btnSubmit{
+    background-color: $color-yellow;
+    color: $color-violet;
+}
+
+.btnGoToRegister{
+    background-color: transparent;
+    color: $color-yellow;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}

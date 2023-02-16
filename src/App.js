@@ -18,6 +18,7 @@ import MenuModal from "./pages/MenuModal";
 import Categories from "./components/Header/Categories";
 import GetScreenWidth from "./utils/GetScreenWidth";
 import "./scss/main.scss";
+import AuthModal from "./pages/AuthModal";
 
 const App = () => {
   const setNews = useNews((state) => state.setNews);
@@ -52,9 +53,12 @@ const App = () => {
           <Route path="/admin/create" element={<CreateNews />} />
           <Route path="/admin/edit/:id" element={<EditNews />} />
         </Routes>
-        {loginModal && <LoginModal />}
+        {/* {loginModal && <LoginModal />}
         {registerModal && <RegisterModal />}
-        {createAdminModal && <CreateAdminModal />}
+        {createAdminModal && <CreateAdminModal />} */}
+        {loginModal && <AuthModal heading="LOGIN" btnName="Login" />}
+        {registerModal && <AuthModal heading="REGISTER" btnName="Register" />}
+        {createAdminModal && <AuthModal heading="CREATE NEW ADMIN" btnName="Create" />}
         {menuModal && <MenuModal />}
       </main>
       <Footer />

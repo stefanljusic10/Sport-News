@@ -37,15 +37,4 @@
         border: none;
         cursor: pointer;
     }
-    & > .btnSubmit{
-        background-color: $color-yellow;
-        color: $color-violet;
-    }
-    & > .btnGoToRegister{
-        background-color: transparent;
-        color: $color-yellow;
-    }
-    & > .btnGoToRegister:hover{
-        text-decoration: underline;
-    }
 }
